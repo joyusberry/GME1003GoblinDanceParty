@@ -27,6 +27,7 @@ namespace GME1003GoblinDanceParty
 
 
         private List<float> _starRotations;
+        private List<float> _starTransparencies;
 
         //***This is for the goblin. Ignore it.
         Goblin goblin;
@@ -52,12 +53,6 @@ namespace GME1003GoblinDanceParty
             _starTransparency = _rng.Next(25, 101)/100f;   //star transparency
             _starRotation = _rng.Next(0, 101) / 100f;       //star rotation
 
-            _starRotations = new List<float>();
-
-            for (int i = 0; i < _numStars; i++)
-            {
-                _starRotations.Add(_rng.Next(0, 101) / 100f);
-            }
 
             //use a separate for loop for each list - for practice
             //List of X coordinates
@@ -73,12 +68,24 @@ namespace GME1003GoblinDanceParty
             }
 
             //ToDo: List of Colors
-            
+
             //ToDo: List of scale values
 
             //ToDo: List of transparency values
+            _starTransparencies = new List<float>();
+
+            for (int i = 0; i < _numStars; i++)
+            {
+                _starTransparencies.Add(_rng.Next(25, 101) / 100f);
+            }
 
             //ToDo: List of rotation values
+            _starRotations = new List<float>();
+
+            for (int i = 0; i < _numStars; i++)
+            {
+                _starRotations.Add(_rng.Next(0, 101) / 100f);
+            }
 
 
             base.Initialize();

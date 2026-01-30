@@ -54,6 +54,11 @@ namespace GME1003GoblinDanceParty
 
             _starRotations = new List<float>();
 
+            for (int i = 0; i < _numStars; i++)
+            {
+                _starRotations.Add(_rng.Next(0, 101) / 100f);
+            }
+
             //use a separate for loop for each list - for practice
             //List of X coordinates
             for (int i = 0; i < _numStars; i++) 
@@ -125,7 +130,7 @@ namespace GME1003GoblinDanceParty
                     new Vector2(_starsX[i], _starsY[i]),    //set the star position
                     null,                                   //ignore this
                     _starColor * _starTransparency,         //set colour and transparency
-                    _starRotation,                          //set rotation
+                    _starRotations[i],                       //set rotation
                     new Vector2(_starSprite.Width / 2, _starSprite.Height / 2), //ignore this
                     new Vector2(_starScale, _starScale),    //set scale (same number 2x)
                     SpriteEffects.None,                     //ignore this

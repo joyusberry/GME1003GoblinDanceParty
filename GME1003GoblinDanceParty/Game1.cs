@@ -28,6 +28,7 @@ namespace GME1003GoblinDanceParty
 
         private List<float> _starRotations;
         private List<float> _starTransparencies;
+        private List<float> _starScales;
 
         //***This is for the goblin. Ignore it.
         Goblin goblin;
@@ -70,6 +71,12 @@ namespace GME1003GoblinDanceParty
             //ToDo: List of Colors
 
             //ToDo: List of scale values
+            _starScales = new List<float>();
+
+            for (int i = 0; i < _numStars; i++)
+            {
+                _starScales.Add(_rng.Next(25, 101) / 100f);
+            }
 
             //ToDo: List of transparency values
             _starTransparencies = new List<float>();

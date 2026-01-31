@@ -29,6 +29,7 @@ namespace GME1003GoblinDanceParty
         private List<float> _starRotations;
         private List<float> _starTransparencies;
         private List<float> _starScales;
+        private List<Color> _starColours;
 
         //***This is for the goblin. Ignore it.
         Goblin goblin;
@@ -69,6 +70,12 @@ namespace GME1003GoblinDanceParty
             }
 
             //ToDo: List of Colors
+            _starColours = new List<Color>();
+
+            for (int i = 0; i < _numStars; i++)
+            {
+                _starColours.Add(new Color(128 + _rng.Next(0, 129), 128 + _rng.Next(0, 129), 128 + _rng.Next(0, 129)));
+            }
 
             //ToDo: List of scale values
             _starScales = new List<float>();
@@ -140,10 +147,10 @@ namespace GME1003GoblinDanceParty
             //this is where we draw the stars...
             for (int i = 0; i < _numStars; i++) 
             {
-                _spriteBatch.Draw(_starSprite, 
+                _spriteBatch.Draw(_starSprite,
                     new Vector2(_starsX[i], _starsY[i]),    //set the star position
                     null,                                   //ignore this
-                    _starColor * _starTransparency,         //set colour and transparency
+                    _starColours[i] * _starTransparencies[i],       //set colour and transparency
                     _starRotations[i],                       //set rotation
                     new Vector2(_starSprite.Width / 2, _starSprite.Height / 2), //ignore this
                     new Vector2(_starScale, _starScale),    //set scale (same number 2x)

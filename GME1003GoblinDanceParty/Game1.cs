@@ -18,6 +18,7 @@ namespace GME1003GoblinDanceParty
         private List<int> _starsY;      //list of star y-coordinates
 
         private Texture2D _starSprite;  //the sprite image for our star
+        private Texture2D _backgroundSprite; //my just dance image for the background
 
         private Random _rng;            //for all our random number needs
         private Color _starColor;       //let's have fun with colour!!
@@ -120,6 +121,8 @@ namespace GME1003GoblinDanceParty
             //if you're tired of the music player, comment this out!
             MediaPlayer.Play(music);
 
+            _backgroundSprite = Content.Load<Texture2D>("justDanceBg");
+
         }
 
         protected override void Update(GameTime gameTime)
@@ -143,6 +146,8 @@ namespace GME1003GoblinDanceParty
 
             //it would be great to have a background image here! 
             //you could make that happen with a single Draw statement.
+            _spriteBatch.Draw(_backgroundSprite, Vector2.Zero, Color.White);
+
 
             //this is where we draw the stars...
             for (int i = 0; i < _numStars; i++) 
